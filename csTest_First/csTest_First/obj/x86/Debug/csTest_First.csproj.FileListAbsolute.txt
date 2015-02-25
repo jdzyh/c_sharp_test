@@ -2,3 +2,6 @@ C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\b
 C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\bin\Debug\csTest_First.pdb
 C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\obj\x86\Debug\csTest_First.exe
 C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\obj\x86\Debug\csTest_First.pdb
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\obj\x86\Debug\csTest_First.csprojResolveAssemblyReference.cache
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\obj\x86\Debug\csTest_First.PrimaryForm.resources
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\csTest_First\obj\x86\Debug\csTest_First.csproj.GenerateResource.Cache
