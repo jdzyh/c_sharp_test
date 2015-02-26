@@ -27,9 +27,9 @@ namespace csTest_First
         public bool SendMessage(Message msg)
         {
             try {
-                lock (streamToServer) {
+                lock (streamToServer) { // 锁
                     byte[] buffer = Encoding.Unicode.GetBytes(msg.ToString());
-                    streamToServer.Write(buffer, 0, buffer.Length);
+                    streamToServer.Write(buffer, 0, buffer.Length); // 写入流
                     return true;
                 }
             } catch {
@@ -40,7 +40,7 @@ namespace csTest_First
         public void SignOut()
         {
             if (streamToServer != null)
-                streamToServer.Dispose();
+                streamToServer.Dispose(); // 切断流
             if (client != null)
                 client.Close();
         }

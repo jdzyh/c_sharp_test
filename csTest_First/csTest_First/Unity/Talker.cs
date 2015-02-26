@@ -17,7 +17,7 @@ namespace csTest_First
         }
 
         public Talker() {
-            this.receiver = new MessageReceiver();
+            this.receiver = new MessageReceiver(); // 面向接口。重构时只需要改写虚构类的实例即可
             this.sender = new MessageSender();
         }
 
@@ -49,6 +49,7 @@ namespace csTest_First
         }
 
         // 注意这个事件
+        // PortNumberReady 为 接口IMessageReceiver 的实例 MessageReceiver 中自定义, 接口中没有, 因此需要单独转型
         public event PortNumberReadyEventHandler PortNumberReady {
             add {
                 ((MessageReceiver)receiver).PortNumberReady += value;

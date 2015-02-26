@@ -195,6 +195,7 @@
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(63, 25);
             this.txtHost.TabIndex = 13;
+            this.txtHost.Text = "localhost";
             // 
             // PrimaryForm
             // 
