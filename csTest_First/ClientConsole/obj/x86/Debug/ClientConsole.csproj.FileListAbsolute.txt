@@ -1,0 +1,4 @@
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ClientConsole\bin\Debug\ClientConsole.exe
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ClientConsole\bin\Debug\ClientConsole.pdb
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ClientConsole\obj\x86\Debug\ClientConsole.exe
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ClientConsole\obj\x86\Debug\ClientConsole.pdb

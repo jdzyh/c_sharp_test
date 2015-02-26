@@ -24,6 +24,17 @@ namespace csTest_First
             }
         }
 
+        public bool Connect(String hostname, int port) {
+            try {
+                client = new TcpClient();
+                client.Connect(hostname, port);
+                streamToServer = client.GetStream();    // 获取连接至远程的流
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
         public bool SendMessage(Message msg)
         {
             try {

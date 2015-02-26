@@ -62,8 +62,9 @@ namespace csTest_First
 
         // 连接远程 - 使用主机名
         public bool ConnectByHost(string hostName, int port) {
-            IPAddress[] ips = Dns.GetHostAddresses(hostName);
-            return sender.Connect(ips[0], port);
+            //IPAddress[] ips = Dns.GetHostAddresses(hostName);
+            //return sender.Connect(ips[1], port);
+            return sender.Connect(hostName, port);
         }
 
         // 连接远程 - 使用IP

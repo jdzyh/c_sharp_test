@@ -9,6 +9,7 @@ namespace csTest_First
     public interface IMessageSender
     {
         bool Connect(IPAddress ip, int port);
+        bool Connect(string hostName, int port);
         bool SendMessage(Message msg);
         void SignOut();
     }

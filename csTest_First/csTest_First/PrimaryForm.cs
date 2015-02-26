@@ -23,6 +23,10 @@ namespace csTest_First
             userName = lbName.Text = name;
             this.talker = new Talker();
             this.Text = userName + " Talking ...";
+
+            //----------------------------------------------------------------
+            // 注册各种事件所调用的函数
+            //----------------------------------------------------------------
             talker.ClientLost +=
                 new ConnectionLostEventHandler(talker_ClientLost);
             talker.ClientConnected +=
@@ -36,6 +40,9 @@ namespace csTest_First
         void ConnectStatus() { }
         void DisconnectStatus() { }
 
+        //----------------------------------------------------------------
+        // 待注册的四个函数
+        //----------------------------------------------------------------
         // 端口号OK
         void PrimaryForm_PortNumberReady(int portNumber) {
             PortNumberReadyEventHandler del = delegate(int port) {
@@ -71,6 +78,9 @@ namespace csTest_First
             txtContent.Invoke(del, info);
         }
 
+        //----------------------------------------------------------------
+        // 控件的事件函数
+        //----------------------------------------------------------------
         // 发送消息
         private void btnSend_Click(object sender, EventArgs e) {
             if (String.IsNullOrEmpty(txtMessage.Text)) {
@@ -83,7 +93,7 @@ namespace csTest_First
             Message msg = new Message(userName, txtMessage.Text);
             if (talker.SendMessage(msg)) {
                 txtContent.Text += msg.ToString();
-                txtMessage.Clear();
+                //txtMessage.Clear();
             } else {
                 txtContent.Text +=
                     String.Format("System[{0}]：\r\n远程主机已断开连接\r\n", DateTime.Now);
@@ -113,7 +123,17 @@ namespace csTest_First
                 txtContent.Text +=
                     String.Format("System[{0}]：\r\n已成功连接至远程\r\n", DateTime.Now);
                 return;
+            } else {
+                MessageBox.Show("无法按照 host 连接");
             }
+            //try {
+            //    talker.ConnectByHost(host, port);
+            //    ConnectStatus();
+            //    txtContent.Text +=
+            //        String.Format("System[{0}]：\r\n已成功连接至远程\r\n", DateTime.Now);
+            //} catch {
+            //    MessageBox.Show("无法按照 host 连接");
+            //}
 
             if (talker.ConnectByIp(ip, port)) {
                 ConnectStatus();

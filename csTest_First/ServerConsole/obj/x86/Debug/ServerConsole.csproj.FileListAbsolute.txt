@@ -1,0 +1,4 @@
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ServerConsole\bin\Debug\ServerConsole.exe
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ServerConsole\bin\Debug\ServerConsole.pdb
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ServerConsole\obj\x86\Debug\ServerConsole.exe
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\csTest_First\ServerConsole\obj\x86\Debug\ServerConsole.pdb

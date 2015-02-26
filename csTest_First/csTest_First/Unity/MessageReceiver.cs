@@ -53,7 +53,7 @@ namespace csTest_First
             // 设置本地IP，并开启对其的监听
             IPAddress localIp = IPAddress.Parse("127.0.0.1");
             //IPAddress localIp = IPAddress.Any;
-            listener = new TcpListener(localIp, 0);
+            listener = new TcpListener(localIp, 8500);
             listener.Start();
 
             // 从监听器获得本地的 IpEndPoint (包含端口信息等)

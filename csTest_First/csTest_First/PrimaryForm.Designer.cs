@@ -179,6 +179,8 @@
             this.txtContent.Location = new System.Drawing.Point(204, 46);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
+            this.txtContent.ReadOnly = true;
+            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtContent.Size = new System.Drawing.Size(358, 164);
             this.txtContent.TabIndex = 12;
             // 
@@ -188,6 +190,7 @@
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(63, 25);
             this.txtPort.TabIndex = 13;
+            this.txtPort.Text = "8500";
             // 
             // txtHost
             // 
