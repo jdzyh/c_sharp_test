@@ -65,18 +65,18 @@ namespace csTest_First
             }
 
             while (true) {
-                TcpClient remoteClient;
+                TcpClient linkedClient;
                 try {
-                    remoteClient = listener.AcceptTcpClient(); // 获取远程客户端信息
+                    linkedClient = listener.AcceptTcpClient();
                 } catch {
                     break;
                 }
                 if (ClientConnected != null) { // 调用事件 : ClientConnected 处理连接后的工作
-                    endPoint = remoteClient.Client.RemoteEndPoint as IPEndPoint;
+                    endPoint = linkedClient.Client.RemoteEndPoint as IPEndPoint;//获取远程client信息
                     ClientConnected(endPoint);
                 }
 
-                Stream streamToClient = remoteClient.GetStream();// 获取客户端流数据
+                Stream streamToClient = linkedClient.GetStream();// 获取客户端流数据
                 byte[] buffer = new byte[8192];
 
                 while (true) { // 读取，直到没数据
