@@ -32,10 +32,11 @@ namespace ClientConsole
             NetworkStream streamToServer = client.GetStream();
             Console.WriteLine("Menu: S - Send, X - Exit");
 
-            do {
-                key = Console.ReadKey(true).Key;
-                if (key == ConsoleKey.S) {
-                    string msg = Console.ReadLine();
+            //do {
+            for(int i=0; i<3; ++i) {
+                //key = Console.ReadKey(true).Key;
+                //if (key == ConsoleKey.S) {
+                    string msg = "NicoNicoNi..."; //Console.ReadLine();
                     byte[] buffer = Encoding.Unicode.GetBytes(msg);
                     
                     try {
@@ -44,23 +45,23 @@ namespace ClientConsole
                         }
                         Console.WriteLine("Sent: {0}", msg);
 
-                        int bytesRead;
-                        buffer = new byte[BUFFER_SIZE];
+                        //int bytesRead;
+                        //buffer = new byte[BUFFER_SIZE];
 
-                        lock (streamToServer) {
-                            bytesRead = streamToServer.Read(buffer, 0, BUFFER_SIZE);
-                        }
+                        //lock (streamToServer) {
+                        //    bytesRead = streamToServer.Read(buffer, 0, BUFFER_SIZE);
+                        //}
 
-                        msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
-                        Console.WriteLine("Received: {0}", msg);
+                        //msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
+                        //Console.WriteLine("Received: {0}", msg);
 
                     } catch(Exception e) {
                         Console.WriteLine(e.Message);
                         break;
                     }
                     
-                }
-            } while (key != ConsoleKey.X);
+                //}
+            } //while (key != ConsoleKey.X);
             streamToServer.Dispose();
             client.Close();
 

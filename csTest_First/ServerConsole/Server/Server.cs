@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 
-namespace ServerConsole
+namespace ClientConsole
 {
     class Server
     {
@@ -43,12 +43,12 @@ namespace ServerConsole
                     string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
                     Console.WriteLine("Received : {0}", msg);
 
-                    msg = msg.ToUpper();
-                    buffer = Encoding.Unicode.GetBytes(msg);
-                    lock (streamToClient) {
-                        streamToClient.Write(buffer, 0, buffer.Length);
-                    }
-                    Console.WriteLine("Sent: {0}", msg);
+                    //msg = msg.ToUpper();
+                    //buffer = Encoding.Unicode.GetBytes(msg);
+                    //lock (streamToClient) {
+                    //    streamToClient.Write(buffer, 0, buffer.Length);
+                    //}
+                    //Console.WriteLine("Sent: {0}", msg);
 
                 } catch(Exception e) {
                     Console.WriteLine( e.Message );
