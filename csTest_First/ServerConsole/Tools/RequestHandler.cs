@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ClientConsole
+namespace ServerConsole.Tools
 {
     public class RequestHandler
     {

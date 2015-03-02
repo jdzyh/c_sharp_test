@@ -9,61 +9,68 @@ namespace ClientConsole
     class Client
     {
         static void Main(string[] args) {
-            const int BUFFER_SIZE = 8192;
 
-            Console.WriteLine("client is running ... ");
-            TcpClient client;
-            ConsoleKey key;
+            ServerClient client = new ServerClient();
+            client.SendMessage();
 
-            try {
-                client = new TcpClient();
-                client.Connect("localhost", 8500);
+            //----------------------------------------------------------
+            // 发送数据并接收
+            //----------------------------------------------------------
+            //const int BUFFER_SIZE = 8192;
 
-            } catch (Exception e) {
-                Console.WriteLine(e.Message);
-                return;
-            }
+            //Console.WriteLine("client is running ... ");
+            //TcpClient client;
+            //ConsoleKey key;
 
-            Console.WriteLine("Server Connected！{0} --> {1}",
-                client.Client.LocalEndPoint,
-                client.Client.RemoteEndPoint
-                );
+            //try {
+            //    client = new TcpClient();
+            //    client.Connect("localhost", 8500);
 
-            NetworkStream streamToServer = client.GetStream();
-            Console.WriteLine("Menu: S - Send, X - Exit");
+            //} catch (Exception e) {
+            //    Console.WriteLine(e.Message);
+            //    return;
+            //}
 
-            //do {
-            for(int i=0; i<3; ++i) {
-                //key = Console.ReadKey(true).Key;
-                //if (key == ConsoleKey.S) {
-                    string msg = "NicoNicoNi..."; //Console.ReadLine();
-                    byte[] buffer = Encoding.Unicode.GetBytes(msg);
+            //Console.WriteLine("Server Connected！{0} --> {1}",
+            //    client.Client.LocalEndPoint,
+            //    client.Client.RemoteEndPoint
+            //    );
+
+            //NetworkStream streamToServer = client.GetStream();
+            //Console.WriteLine("Menu: S - Send, X - Exit");
+
+            ////do {
+            //for(int i=0; i<3; ++i) {
+            //    //key = Console.ReadKey(true).Key;
+            //    //if (key == ConsoleKey.S) {
+            //        string msg = "NicoNicoNi..."; //Console.ReadLine();
+            //        byte[] buffer = Encoding.Unicode.GetBytes(msg);
                     
-                    try {
-                        lock (streamToServer) {
-                            streamToServer.Write(buffer, 0, buffer.Length);
-                        }
-                        Console.WriteLine("Sent: {0}", msg);
+            //        try {
+            //            lock (streamToServer) {
+            //                streamToServer.Write(buffer, 0, buffer.Length);
+            //            }
+            //            Console.WriteLine("Sent: {0}", msg);
 
-                        //int bytesRead;
-                        //buffer = new byte[BUFFER_SIZE];
+            //            //int bytesRead;
+            //            //buffer = new byte[BUFFER_SIZE];
 
-                        //lock (streamToServer) {
-                        //    bytesRead = streamToServer.Read(buffer, 0, BUFFER_SIZE);
-                        //}
+            //            //lock (streamToServer) {
+            //            //    bytesRead = streamToServer.Read(buffer, 0, BUFFER_SIZE);
+            //            //}
 
-                        //msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
-                        //Console.WriteLine("Received: {0}", msg);
+            //            //msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
+            //            //Console.WriteLine("Received: {0}", msg);
 
-                    } catch(Exception e) {
-                        Console.WriteLine(e.Message);
-                        break;
-                    }
+            //        } catch(Exception e) {
+            //            Console.WriteLine(e.Message);
+            //            break;
+            //        }
                     
-                //}
-            } //while (key != ConsoleKey.X);
-            streamToServer.Dispose();
-            client.Close();
+            //    //}
+            //} //while (key != ConsoleKey.X);
+            //streamToServer.Dispose();
+            //client.Close();
 
             //----------------------------------------------------------
             // 循环:建立连接

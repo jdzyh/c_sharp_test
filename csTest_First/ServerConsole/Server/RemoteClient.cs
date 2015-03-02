@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net.Sockets;
+using ServerConsole.Tools;
 
-namespace ClientConsole
+namespace ServerConsole
 {
     //---------------------------------------------------------------------
     // 封装 Tcpclient 类
@@ -32,8 +33,13 @@ namespace ClientConsole
             handler = new RequestHandler();
 
             // 在构造函数中就开始准备读取
+            // "An optional asynchronous callback, to be called when the read is complete."
             AsyncCallback callBack = new AsyncCallback(ReadComplete);
-            streamToClient.BeginRead(buffer, 0, BufferSize, callBack, null);
+            /** "https://msdn.microsoft.com/en-us/library/system.io.stream.beginread(v=vs.110).aspx"
+             * "the new async methods, such as ReadAsync, WriteAsync, CopyToAsync, and FlushAsync, 
+             * help you implement asynchronous I/O operations more easily."
+            */
+            streamToClient.BeginRead(buffer, 0, BufferSize, callBack, null); // 启用一个异步读取操作线程
         }
 
         // 再读取完成时进行回调
@@ -64,6 +70,7 @@ namespace ClientConsole
                 }
 
                 // 再次调用BeginRead()，完成时调用自身，形成无限循环
+                // 起一个新线程
                 lock (streamToClient) {
                     AsyncCallback callBack = new AsyncCallback(ReadComplete);
                     streamToClient.BeginRead(buffer, 0, BufferSize, callBack, null);

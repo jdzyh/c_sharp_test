@@ -5,70 +5,84 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 
-namespace ClientConsole
+namespace ServerConsole
 {
     class Server
     {
         static void Main(string[] args) {
-            const int BUFFER_SIZE = 8192;
 
             Console.WriteLine("Server is running ... ");
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            //IPAddress ip = Dns.GetHostEntry("localhost").AddressList[0];
+            IPAddress ip = new IPAddress(new byte[] { 127, 0, 0, 1 });
             TcpListener listener = new TcpListener(ip, 8500);
-            
-            listener.Start();
+
+            listener.Start();           // 开始侦听
             Console.WriteLine("Start Listening ...");
 
+            while (true) {
+                // 获取一个连接
+                TcpClient client = listener.AcceptTcpClient(); // 同步方法，在此处中断
+                RemoteClient wapper = new RemoteClient(client);
+            }
             //----------------------------------------------------------
             // 接收并显示流
             //----------------------------------------------------------
-            TcpClient linkedClient = listener.AcceptTcpClient();
-            Console.WriteLine("{0}<---{1}",
-                linkedClient.Client.LocalEndPoint,
-                linkedClient.Client.RemoteEndPoint
-                );
+            //const int BUFFER_SIZE = 8192;
 
-            NetworkStream streamToClient = linkedClient.GetStream();
-            while (true) {
-                byte[] buffer = new byte[BUFFER_SIZE];
-                int bytesRead;
-                try {
-                    lock (streamToClient) {
-                        bytesRead = streamToClient.Read(buffer, 0, BUFFER_SIZE);
-                    }
-                    if (bytesRead == 0) throw new Exception("读取到0字节");
+            //Console.WriteLine("Server is running ... ");
+            //IPAddress ip = IPAddress.Parse("127.0.0.1");
+            ////IPAddress ip = Dns.GetHostEntry("localhost").AddressList[0];
+            //TcpListener listener = new TcpListener(ip, 8500);
+            
+            //listener.Start();
+            //Console.WriteLine("Start Listening ...");
 
-                    Console.WriteLine("Reading data, {0} bytes ...", bytesRead);
-                    string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
-                    Console.WriteLine("Received : {0}", msg);
+            ////----------------------------------------------------------
+            //TcpClient linkedClient = listener.AcceptTcpClient();
+            //Console.WriteLine("{0}<---{1}",
+            //    linkedClient.Client.LocalEndPoint,
+            //    linkedClient.Client.RemoteEndPoint
+            //    );
 
-                    //msg = msg.ToUpper();
-                    //buffer = Encoding.Unicode.GetBytes(msg);
-                    //lock (streamToClient) {
-                    //    streamToClient.Write(buffer, 0, buffer.Length);
-                    //}
-                    //Console.WriteLine("Sent: {0}", msg);
+            //NetworkStream streamToClient = linkedClient.GetStream();
+            //while (true) {
+            //    byte[] buffer = new byte[BUFFER_SIZE];
+            //    int bytesRead;
+            //    try {
+            //        lock (streamToClient) {
+            //            bytesRead = streamToClient.Read(buffer, 0, BUFFER_SIZE);
+            //        }
+            //        if (bytesRead == 0) throw new Exception("读取到0字节");
 
-                } catch(Exception e) {
-                    Console.WriteLine( e.Message );
-                    break;
-                }
-            }//while
-            streamToClient.Dispose();
-            linkedClient.Close();
+            //        Console.WriteLine("Reading data, {0} bytes ...", bytesRead);
+            //        string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
+            //        Console.WriteLine("Received : {0}", msg);
 
-            // 分次读取并转存
-            //byte[] buffer = new byte[BufferSize];
-            //int bytesRead;
-            //MemoryStream msStream = new MemoryStream();
-            //do {
-            //    bytesRead = streamToClient.Read(buffer, 0, BufferSize);
-            //    msStream.Write(buffer, 0, bytesRead);
-            //} while (bytesRead > 0);
+            //        //msg = msg.ToUpper();
+            //        //buffer = Encoding.Unicode.GetBytes(msg);
+            //        //lock (streamToClient) {
+            //        //    streamToClient.Write(buffer, 0, buffer.Length);
+            //        //}
+            //        //Console.WriteLine("Sent: {0}", msg);
 
-            //buffer = msStream.GetBuffer();
-            //string msg = Encoding.Unicode.GetString(buffer);
+            //    } catch(Exception e) {
+            //        Console.WriteLine( e.Message );
+            //        break;
+            //    }
+            //}//while
+            //streamToClient.Dispose();
+            //linkedClient.Close();
+
+            //// 分次读取并转存
+            ////byte[] buffer = new byte[BufferSize];
+            ////int bytesRead;
+            ////MemoryStream msStream = new MemoryStream();
+            ////do {
+            ////    bytesRead = streamToClient.Read(buffer, 0, BufferSize);
+            ////    msStream.Write(buffer, 0, bytesRead);
+            ////} while (bytesRead > 0);
+
+            ////buffer = msStream.GetBuffer();
+            ////string msg = Encoding.Unicode.GetString(buffer);
 
 
             //----------------------------------------------------------
