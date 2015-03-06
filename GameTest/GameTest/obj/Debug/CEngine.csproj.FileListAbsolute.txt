@@ -1,0 +1,6 @@
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\bin\Debug\GameTest.exe.config
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\bin\Debug\GameTest.exe
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\bin\Debug\GameTest.pdb
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\obj\Debug\CEngine.csprojResolveAssemblyReference.cache
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\obj\Debug\GameTest.exe
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\obj\Debug\GameTest.pdb

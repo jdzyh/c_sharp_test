@@ -1,0 +1,1 @@
+C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\GameTest\bin\Debug\GameTest.exe.config

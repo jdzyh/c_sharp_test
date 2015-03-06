@@ -37,6 +37,11 @@ namespace csTest_First
                 new PortNumberReadyEventHandler(PrimaryForm_PortNumberReady);
         }
 
+        void talker_PortNumberReady(int portNumber)
+        {
+            throw new NotImplementedException();
+        }
+
         void ConnectStatus() { }
         void DisconnectStatus() { }
 
