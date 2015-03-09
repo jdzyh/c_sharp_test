@@ -1,6 +1,0 @@
-C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\Flight\bin\Debug\Flight.exe.config
-C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\Flight\bin\Debug\Flight.exe
-C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\Flight\bin\Debug\Flight.pdb
-C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\Flight\obj\Debug\Flight.csprojResolveAssemblyReference.cache
-C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\Flight\obj\Debug\Flight.exe
-C:\Users\linux\workspace\ProgramTest\C#\c_sharp_test\GameTest\Flight\obj\Debug\Flight.pdb
