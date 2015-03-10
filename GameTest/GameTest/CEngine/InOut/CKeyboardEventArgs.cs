@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CEngine
 {
-    class CKeyboardEventArgs : EventArgs {
+    public class CKeyboardEventArgs : EventArgs {
         private CKeys m_keys;
 
         public CKeyboardEventArgs(CKeys keys) {
